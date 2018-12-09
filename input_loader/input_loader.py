@@ -6,6 +6,8 @@ def get_input(day):
     path = f'day{day}.txt'
     if os.path.isfile(path):
         return open(path).read()
+
+    headers = requests.utils.default_headers()
     
     cookie = {'session': '53616c7465645f5f34fad9ceebd1bbf84a3bd7bd9bb29a74a986803905d56ccb76c23a8c16ffda2b5032b258e3d710cb'}
     url = f'https://adventofcode.com/2018/day/{day}/input'
@@ -16,4 +18,4 @@ def get_input(day):
         return ''
     
     open(path, mode='w').write(req.text)
-    return req.text
+    return req.text.strip()
