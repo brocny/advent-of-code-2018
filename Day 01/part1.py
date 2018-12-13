@@ -1,13 +1,8 @@
-def main():
-    sum = 0
-    with open('input.txt') as  f:
-        for x in f:
-            num = int(x[1:])
-            sum += num if x[0] == '+' else -num
+sum = 0
+for x in open('input.txt').read().splitlines():
+    num = int(x)
+    sum += num
 
-    print(sum)
-
-if __name__ == "__main__":
-    main()
+print(sum)
 
 
